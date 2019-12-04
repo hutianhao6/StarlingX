@@ -35,7 +35,7 @@ bash setup.sh
 
 6、在stx-packaging/fault/fm-common/sources/目录下创建debian目录，创建两个新文件（其中fm-common为要构建的deb包名称，1.0为构建后的版本）：
 （1）changelog
-fm-common (1.0) unstable; urgency=medium.  
+fm-common (1.0) unstable; urgency=medium
 
   * Initial release
 
