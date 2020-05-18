@@ -1,0 +1,18 @@
+首先需要写一份override的yml文件，模版内容如下：
+conf:
+  nova:
+    neutron:
+      physnet: physnet0,physnet1
+    neutron_physnet_physnet0:
+      physnet0: 0
+    neutron_physnet_physnet1:
+      physnet1: 1
+
+override文件写好后执行下面命令：
+system helm-override-update stx-openstack nova openstack --values nova-override.yml
+system application-apply stx-openstack
+watch -n 5 system application-list
+
+openstack应用apply成功后进入pod中查看修改是否生效：
+kubectl get pod -n openstack -l application=<server name>
+kubectl exec -it -n openstack <pod name> bash
